@@ -1,20 +1,17 @@
-// main.dart
 import 'package:flutter/material.dart';
 import 'package:pokedex/pages/listaPokedex/listaPokedexViews.dart';
+import 'package:pokedex/pages/listaPokedex/pokedexController.dart';
+import 'package:provider/provider.dart';
+
+import 'package:pokedex/models/listaPokedex.dart';
 
 void main() {
-  runApp(PokedexApp());
-}
-
-class PokedexApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Pokedex',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.black,
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => pokedexController(repository: listaPokedex()),
+      child: MaterialApp(
+        home: PokemonDetailScreen(),
       ),
-      home: PokemonDetailScreen(),
-    );
-  }
+    ),
+  );
 }

@@ -45,8 +45,7 @@ class PokemonDetailScreenState extends State<PokemonDetailScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            DetailsPokemonScreen(pokemon: item),
+                        builder: (context) => PokemonDetails(pokemon: item),
                       ),
                     );
                   },
