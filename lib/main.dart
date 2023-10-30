@@ -1,6 +1,6 @@
 // main.dart
 import 'package:flutter/material.dart';
-import 'package:pokedex/pokemon_screen.dart';
+import 'package:pokedex/pages/listaPokedex/listaPokedexViews.dart';
 
 void main() {
   runApp(PokedexApp());
@@ -14,7 +14,7 @@ class PokedexApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.black,
       ),
-      home: PokemonScreen(),
+      home: PokemonDetailScreen(),
     );
   }
 }
