@@ -1,26 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/models/listaPokedex.dart';
+import 'package:provider/provider.dart';
 import 'package:pokedex/models/listaPokedexRepository.dart';
 import 'package:pokedex/pages/detailspokemon.dart/detailspokemon.dart';
 import 'package:pokedex/pages/listaPokedex/pokedexController.dart';
 
-class PokemonDetailScreen extends StatefulWidget {
-  @override
-  State<PokemonDetailScreen> createState() => PokemonDetailScreenState();
-}
-
-class PokemonDetailScreenState extends State<PokemonDetailScreen> {
-  late pokedexController controller;
-
-  @override
-  void initState() {
-    controller = pokedexController(
-      repository: listaPokedex(),
-    );
-    controller.load();
-    super.initState();
-  }
-
+class PokemonDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +15,8 @@ class PokemonDetailScreenState extends State<PokemonDetailScreen> {
           style: TextStyle(color: Colors.white),
         ), // Define o título da barra de aplicativos como o nome do Pokémon
       ),
-      body: ListenableBuilder(
-        listenable: controller,
-        builder: (context, child) {
+      body: Consumer<pokedexController>(
+        builder: (context, controller, child) {
           return ListView.builder(
             itemCount: controller.pokemonList.length,
             itemBuilder: (context, index) {

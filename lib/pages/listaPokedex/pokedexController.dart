@@ -3,7 +3,7 @@ import 'package:pokedex/models/listaPokedex.dart';
 import 'package:pokedex/models/listaPokedexRepository.dart';
 
 class pokedexController extends ChangeNotifier {
-  final listaPokedex repository;
+  final ListaPokedex repository;
   List<listaPokedexRepository> pokemonList = [];
   pokedexController({required this.repository});
 

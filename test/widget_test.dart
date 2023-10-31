@@ -9,11 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:pokedex/main.dart';
+import 'package:pokedex/models/listaPokedex.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(PokedexApp());
+    await tester.pumpWidget(ListaPokedex() as Widget);
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

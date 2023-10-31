@@ -7,8 +7,9 @@ import 'package:pokedex/models/listaPokedex.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => pokedexController(repository: listaPokedex()),
+    ListenableProvider(
+      create: (context) =>
+          pokedexController(repository: ListaPokedex())..load(),
       child: MaterialApp(
         home: PokemonDetailScreen(),
       ),
